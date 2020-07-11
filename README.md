@@ -1,2 +1,2 @@
 # Tic_Tac_Toe
- This is console based knots and crosses.
+ A console based game for knots and crosses
