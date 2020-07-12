@@ -1,5 +1,7 @@
 # Tic_Tac_Toe
- A console based game for knots and crosses
+A console based game for knots and crosses
+
+To run this game, you will need to run the Game.py file. 
 
 The implementation details: 
 
