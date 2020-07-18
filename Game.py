@@ -3,7 +3,7 @@ from SquareBoard import SquareBoard
 import re
 
 
-def checkDiagonal(move, board):
+def checkLeftRightDiagonal(move, board):
     length = board.length
     # if move on left to right diagonal
     if (move.x == move.y):
@@ -19,7 +19,10 @@ def checkDiagonal(move, board):
             x += 1
             y += 1
         return True
+    return False
 
+def checkRightLeftDiagonal(move, board):
+    length = board.length
     # if move on right to left diagonal
     if (move.x + move.y == length + 1):
         previousPos = None
@@ -34,7 +37,6 @@ def checkDiagonal(move, board):
             x += 1
             y -= 1
         return True
-
     return False
 
 def checkRow(move, board):
@@ -68,7 +70,7 @@ def endGame(board, lastMove):
     # Check the current status of the game
     elif lastMove != None:
         # Check if 3 in row, column or diagonal
-        if checkRow(lastMove, board) or checkColumn(lastMove, board) or checkDiagonal(lastMove, board):
+        if checkRow(lastMove, board) or checkColumn(lastMove, board) or checkRightLeftDiagonal(lastMove, board) or checkLeftRightDiagonal(lastMove, board):
             print("\nMove accepted, well done you've won the game!\n")
             print(board)
             return True
@@ -95,7 +97,7 @@ def playGame(board):
         if board.playerOneTurn:
             coordinates = input("Player 1 enter a coord x,y to place your X or enter 'q' to give up: ")
         else:
-            coordinates = input("Player 2 enter a coord x,y to place your X or enter 'q' to give up: ")
+            coordinates = input("Player 2 enter a coord x,y to place your O or enter 'q' to give up: ")
 
         #Check if the user wants to quit game
         if coordinates == "q":
